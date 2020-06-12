@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://nao:kaisen29@devconnector-4ihio.mongodb.net/<dbname>?retryWrites=true&w=majority",
-  "jwtSecret": "naoyasusecrettoken"
+  "jwtSecret": "naoyasusecrettoken",
+  "githubClientId": "229ee85a239a4506043f",
+  "githubSecret": "c6be7673c2cbf9093848eb5e4b93efa00c590c71"
 }
