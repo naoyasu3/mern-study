@@ -4,9 +4,11 @@
   "description": "Social net works developers",
   "main": "server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
     "server": "nodemon server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "naoyasu3",
   "license": "MIT",
