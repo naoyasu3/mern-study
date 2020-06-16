@@ -7,6 +7,8 @@ import { getProfileById } from '../../actions/profile';
 import Spinner from '../layout/Spinner';
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
+import ProfileExperience from './ProfileExperience';
+import ProfileEducation from './ProfileEducation';
 
 const Profile = ({
   getProfileById,
@@ -37,6 +39,30 @@ const Profile = ({
           <div className='profile-grid my-1'>
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
+            <div class='profile-exp bg-white p-2'>
+              <h2 class='text-primary'>職務経験</h2>
+              {profile.experience.length > 0 ? (
+                <Fragment>
+                  {profile.experience.map((exp) => (
+                    <ProfileExperience key={exp._id} experience={exp} />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4>職務経験の登録はありません</h4>
+              )}
+            </div>
+            <div class='profile-edu bg-white p-2'>
+              <h2 class='text-primary'>学歴</h2>
+              {profile.education.length > 0 ? (
+                <Fragment>
+                  {profile.education.map((edu, index) => (
+                    <ProfileEducation key={index} education={edu} />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4>学歴の登録はありません</h4>
+              )}
+            </div>
           </div>
         </Fragment>
       )}
