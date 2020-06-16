@@ -1,7 +1,14 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 
-import { GET_PROFILE, UPDATE_PROFILE, PROFILE_ERROR } from './types';
+import {
+  GET_PROFILE,
+  UPDATE_PROFILE,
+  PROFILE_ERROR,
+  CLEAR_PROFILE,
+  ACCOUNT_DELETED,
+  LOGOUT,
+} from './types';
 
 // ログインユーザのプロフィール取得
 export const getCurrentProfile = () => async (dispatch) => {
@@ -120,5 +127,66 @@ export const addEducation = (formData, history) => async (dispatch) => {
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
     });
+  }
+};
+
+// Delete Experience
+export const deleteExperience = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/api/profile/experience/${id}`);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data,
+    });
+
+    dispatch(setAlert('Experience Removes', 'success'));
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Delete Education
+export const deleteEducation = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/api/profile/education/${id}`);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data,
+    });
+
+    dispatch(setAlert('Education Removes', 'success'));
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+//Delete Account & Profile
+export const deleteAccount = () => async (dispatch) => {
+  if (window.confirm('本当に削除して良いですか？')) {
+    try {
+      await axios.delete(`/api/profile`);
+
+      dispatch({
+        type: CLEAR_PROFILE,
+      });
+      dispatch({
+        type: ACCOUNT_DELETED,
+      });
+
+      dispatch(setAlert('アカウントは削除されました'));
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    }
   }
 };
