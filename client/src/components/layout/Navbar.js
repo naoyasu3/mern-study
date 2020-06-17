@@ -11,7 +11,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Link to='/profiles'>開発者一覧</Link>
       </li>
       <li>
-        <Link to='/posts'>投稿</Link>
+        <Link to='/posts'>投稿一覧</Link>
       </li>
       <li>
         <Link to='/dashboard'>
