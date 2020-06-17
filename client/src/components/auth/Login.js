@@ -28,9 +28,9 @@ function Login({ login, isAuthenticated }) {
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Sign In</h1>
+      <h1 className='large text-primary'>ログイン</h1>
       <p className='lead'>
-        <i className='fas fa-user'></i> Sign Into Your Account
+        <i className='fas fa-user'></i>
       </p>
       <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
@@ -56,7 +56,7 @@ function Login({ login, isAuthenticated }) {
         <input type='submit' className='btn btn-primary' value='Login' />
       </form>
       <p className='my-1'>
-        Don't have an account? <Link to='/register'>Sign Up</Link>
+        アカウントを持っていませんか? <Link to='/register'>Sign Up</Link>
       </p>
     </Fragment>
   );

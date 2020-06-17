@@ -35,7 +35,7 @@ function Register({ setAlert, register, isAuthenticated }) {
     <Fragment>
       <h1 className='large text-primary'>Sign Up</h1>
       <p className='lead'>
-        <i className='fas fa-user'></i> Create Your Account
+        <i className='fas fa-user'></i> 新規登録
       </p>
       <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
@@ -58,8 +58,8 @@ function Register({ setAlert, register, isAuthenticated }) {
             // required
           />
           <small className='form-text'>
-            This site uses Gravatar so if you want a profile image, use a
-            Gravatar email
+            このサイトでは、アイコンにGravatarのイメージを利用しています。
+            必要な場合は、Gravatarで登録したメールアドレスを登録してください。
           </small>
         </div>
         <div className='form-group'>
@@ -85,7 +85,7 @@ function Register({ setAlert, register, isAuthenticated }) {
         <input type='submit' className='btn btn-primary' value='Register' />
       </form>
       <p className='my-1'>
-        Already have an account? <Link to='/login'>Sign In</Link>
+        すでにアカウントを持っていますか？ <Link to='/login'>Sign In</Link>
       </p>
     </Fragment>
   );

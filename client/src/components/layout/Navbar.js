@@ -8,21 +8,21 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li>
-        <Link to='/profiles'>Developers</Link>
+        <Link to='/profiles'>開発者一覧</Link>
       </li>
       <li>
-        <Link to='/posts'>Posts</Link>
+        <Link to='/posts'>投稿</Link>
       </li>
       <li>
         <Link to='/dashboard'>
           <i className='fas fa-user' />{' '}
-          <span className='hide-sm'>Dashboard</span>
+          <span className='hide-sm'>ダッシュボード</span>
         </Link>
       </li>
       <li>
         <a onClick={logout} href='#!'>
           <i className='fas fa-sign-out-alt'></i>{' '}
-          <span className='hide-sm'>Logout</span>
+          <span className='hide-sm'>ログアウト</span>
         </a>
       </li>
     </ul>
@@ -31,13 +31,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to='/profiles'>Developers</Link>
+        <Link to='/profiles'>開発者一覧</Link>
       </li>
       <li>
-        <Link to='/register'>Register</Link>
+        <Link to='/register'>登録</Link>
       </li>
       <li>
-        <Link to='/login'>Login</Link>
+        <Link to='/login'>ログイン</Link>
       </li>
     </ul>
   );
