@@ -1,6 +1,16 @@
 version: '3'
 services: 
-  server:
+  nginx:
+    depends_on: 
+      - api
+      - client
+    restart: always
+    build: 
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports: 
+      - '3050:80'
+  api:
     build:
       dockerfile: Dockerfile.dev
       context: ./
@@ -8,10 +18,10 @@ services:
       - /app/node_modules
       - ./app
   client:
+    stdin_open: true
     build:
       dockerfile: Dockerfile.dev
       context: ./client
     volumes: 
       - /app/node_modules
       - ./client:/app
-    stdin_open: true
